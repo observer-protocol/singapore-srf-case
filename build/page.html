@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; font-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Singapore SRF case explorer</title>
+<style>/*__CSS__*/</style>
+</head>
+<body>
+<div class="banner" role="note">All data on this page is synthetic: no real individuals, accounts, institutions, or incidents. <span class="tag">SYNTHETIC</span> <span class="tag">DEMONSTRATION-KEY</span></div>
+<header class="top">
+  <h1>Singapore SRF case explorer</h1>
+  <p class="lede">A clause register for the MAS Guidelines on Shared Responsibility Framework (SRF), the Section 6 loss-allocation table, seven signed synthetic records with the verifier running in this page, and the measurement annex's figures. Nothing on this page fetches from the network: the register, the records, the annex figures and the verifier are all inside this file.</p>
+  <p class="lede small">This page accompanies a contribution to a working group on SAFR, an industry reference approach. It describes an encoding and its measurements; it makes no conformance, certification, or endorsement claim.</p>
+  <nav class="toc" aria-label="Sections"><a href="#register">Register</a><a href="#waterfall">Waterfall</a><a href="#records">Records</a><a href="#tamper">Tamper</a><a href="#measurements">Measurements</a><a href="#footer">Provenance</a></nav>
+</header>
+<main>
+
+<section id="register" class="sec">
+  <h2>a. The register: 104 clauses</h2>
+  <p class="meta">Publication form of <code>policy-library/mas-srf-2024/register.json</code>, register <code>srf@0.1.0</code>, accepted at tag <code>{{REGISTER_TAG}}</code>. Each row: clause ID, the plain assertion, the source locator (document, paragraph, page).</p>
+  <p class="meta axis"><strong>Tier and duty holder, the filter axes:</strong> as listed in the measurement annex, section 1.1, for the 42 clauses that carry an evaluation and an FI or Telco duty holder. The publication register carries neither field, so the other 62 clauses are shown as <em>not listed</em>. Disposition is the register's own field.</p>
+  <div class="filters" role="group" aria-label="Register filters">
+    <label>Tier <select id="f-tier"><option value="">all</option><option value="fi">fi</option><option value="telco">telco</option><option value="process">process</option><option value="__none">not listed</option></select></label>
+    <label>Duty holder <select id="f-holder"><option value="">all</option><option value="fi">fi</option><option value="telco">telco</option><option value="__none">not listed</option></select></label>
+    <label>Disposition <select id="f-disp"><option value="">all</option></select></label>
+    <label class="grow">Search <input id="f-text" type="search" placeholder="clause id, assertion, locator" autocomplete="off"></label>
+    <span id="f-count" class="count" aria-live="polite"></span>
+  </div>
+  <div class="scroll"><table id="register-table" class="reg"><thead><tr><th>Clause ID</th><th>Assertion</th><th>Source locator</th><th>Disposition</th><th>Tier</th><th>Duty holder</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section id="waterfall" class="sec">
+  <h2>b. The waterfall: Section 6 as a decision table</h2>
+  <div id="waterfall-head"></div>
+  <div class="scroll"><table id="waterfall-table" class="wf"><thead><tr><th>scope<br><small>srf/7.1.1/relevant-claim</small></th><th>fi_tier<br><small>srf/6/fi-tier</small></th><th>telco_tier<br><small>srf/6.4/telco-bears</small></th><th>outcome</th><th>note in the register</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section id="records" class="sec">
+  <h2>c. Records: the seven exhibits</h2>
+  <p class="meta">One full v7 record set per outcome and tier reached, signed during the run with the ephemeral key <code>{{KEY_DID}}</code> (SYNTHETIC, DEMONSTRATION-KEY; private half never written, released before the manifest was written). <strong>Verify</strong> runs <code>verifyEddsaJcs2022</code> from the bundled <code>@observer-protocol/policy-engine@{{ENGINE_VERSION}}</code> in this page and names the key it verified against. Each card's <strong>Tamper</strong> control applies one post-signing change, re-runs the same verifier, shows its reason verbatim, and <strong>Restore</strong> puts the committed bytes back.</p>
+  <div class="actions"><button id="verify-all" class="btn primary">Verify all 7</button> <span id="verify-all-result" class="result-line" aria-live="polite"></span></div>
+  <div id="cards" class="cards"></div>
+</section>
+
+<section id="tamper" class="sec">
+  <h2>d. Tamper demo: the four committed tampered copies</h2>
+  <p class="meta">The corpus run committed four claim records modified in one field each after signing (<code>out/exhibits/TAMPERED-records.json</code>). The same verifier runs over each copy here; every one must fail, with the verifier's reason shown verbatim. The recorded result of the original before tampering is shown beside it from <code>tamper-test.json</code>. Per-record tampering of the seven exhibits is on each card above.</p>
+  <div class="actions"><button id="verify-tampered" class="btn primary">Verify the 4 tampered copies</button> <span id="verify-tampered-result" class="result-line" aria-live="polite"></span></div>
+  <div id="tampered-cards" class="cards"></div>
+</section>
+
+<section id="measurements" class="sec">
+  <h2>e. Measurements</h2>
+  <p class="meta">Every figure below is transcribed from the measurement annex (<code>ANNEX.md</code>, sha256 <code>{{ANNEX_SHA256}}</code>); each percentage is printed with its denominator on the same line, as the annex prints it. Nothing here is recomputed from records.</p>
+  <blockquote class="annex-quote" id="annex-statement"></blockquote>
+  <h3>Outcome distribution</h3>
+  <div id="chart"></div>
+  <div class="scroll"><table id="outcomes-table" class="fig"></table></div>
+  <p id="scope-undecided" class="fig-line"></p>
+  <h3>Tier reached</h3>
+  <div class="scroll"><table id="tier-table" class="fig"></table></div>
+  <h3 id="headline-heading"></h3>
+  <p id="headline-definition" class="fig-line"></p>
+  <div class="scroll"><table id="headline-table" class="fig"></table></div>
+  <p id="headline-stopped" class="fig-line"></p>
+  <p id="headline-waiting-intro" class="fig-line"></p>
+  <div class="scroll"><table id="waiting-table" class="fig"></table></div>
+  <p id="headline-duty-intro" class="fig-line"></p>
+  <div class="scroll"><table id="duty-table" class="fig"></table></div>
+  <p id="headline-bypop" class="fig-line"></p>
+  <h3 id="dangerous-heading"></h3>
+  <p id="dangerous-intro" class="fig-line"></p>
+  <div class="scroll"><table id="dangerous-table" class="fig"></table></div>
+  <h3>Verification pass (annex section 4)</h3>
+  <p id="verification-intro" class="fig-line"></p>
+  <div class="scroll"><table id="verification-table" class="fig"></table></div>
+  <h3>Tamper test (annex section 5)</h3>
+  <p id="tamper-intro" class="fig-line"></p>
+  <div class="scroll"><table id="tamper-table" class="fig"></table></div>
+  <p id="tamper-verdict" class="fig-line"></p>
+  <h3>Key custody (annex section 6)</h3>
+  <p id="custody" class="fig-line"></p>
+  <h3>Files (annex section 7)</h3>
+  <div class="scroll"><table id="files-table" class="fig"></table></div>
+</section>
+</main>
+
+<footer id="footer" class="foot">
+  <h2>Provenance</h2>
+  <dl>
+    <dt>Verifier</dt><dd><code>@observer-protocol/policy-engine@{{ENGINE_VERSION}}</code>, npm tarball <code>{{ENGINE_TARBALL}}</code>, shasum <code>{{ENGINE_SHASUM}}</code> (<code>engine/</code> in this repository). Bundled for the browser by <code>build/bundle-engine.mjs</code> ({{SHIM_ESBUILD}}): the package's <code>dist/index.mjs</code> with Node's <code>crypto</code> replaced by {{SHIM_ED25519}} and {{SHIM_HASHES}}, and <code>Buffer</code> supplied by {{SHIM_BUFFER}}; bundle sha256 <code>{{BUNDLE_SHA256}}</code>.</dd>
+    <dt>Register</dt><dd>Tag <code>{{REGISTER_TAG}}</code> at commit <code>{{REGISTER_TAG_COMMIT}}</code>; publication form from <code>{{REGISTER_PUBLICATION_REF}}</code>, sha256 of <code>data/register.json</code> <code>{{REGISTER_PUBLICATION_SHA256}}</code>. The register digest signed into every record is that of the register at the tag: <code>{{REGISTER_SIGNED_SHA256}}</code>.</dd>
+    <dt>Manifest</dt><dd><code>data/manifest.json</code> sha256 <code>{{MANIFEST_SHA256}}</code>; run created <code>{{MANIFEST_CREATED}}</code>; key <code>{{KEY_DID}}</code>. Tampered set <code>data/exhibits/TAMPERED-records.json</code> sha256 <code>{{TAMPERED_SHA256}}</code>.</dd>
+    <dt>Corpus outputs</dt><dd>{{CORPUS_REF}}</dd>
+    <dt>Re-run outside the browser</dt><dd><a href="cli/README.md">cli/README.md</a>: six steps with the published package, the committed exhibits and the tampered copies.</dd>
+    <dt>Attribution</dt><dd>{{ATTRIBUTION}}</dd>
+  </dl>
+  <p class="banner-foot">SYNTHETIC. DEMONSTRATION-KEY. All data synthetic, no real individuals, accounts, institutions, or incidents.</p>
+</footer>
+<script id="data" type="application/json">/*__DATA__*/</script>
+<script>/*__ENGINE__*/</script>
+<script>/*__APP__*/</script>
+</body>
+</html>

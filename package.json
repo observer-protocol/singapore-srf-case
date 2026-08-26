@@ -1,0 +1,20 @@
+{
+  "name": "singapore-srf-case",
+  "private": true,
+  "type": "module",
+  "description": "Static case explorer for the MAS SRF clause register and the SYNTHETIC SRF SCALE corpus exhibits. SYNTHETIC data, DEMONSTRATION-KEY.",
+  "scripts": {
+    "bundle-engine": "node build/bundle-engine.mjs",
+    "build": "node build/bundle-engine.mjs && node build/build-page.mjs",
+    "verify": "node cli/verify.mjs",
+    "tamper": "node cli/tamper.mjs",
+    "gate": "node gate/gate.mjs"
+  },
+  "devDependencies": {
+    "@noble/ed25519": "3.1.0",
+    "@noble/hashes": "2.3.0",
+    "buffer": "6.0.3",
+    "esbuild": "0.21.5",
+    "puppeteer-core": "*"
+  }
+}
