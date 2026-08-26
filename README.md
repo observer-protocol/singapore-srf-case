@@ -24,6 +24,7 @@ guidance.
 | 5 | The verifier: `npm install @observer-protocol/policy-engine@1.0.0-rc.22` (MIT-licensed; the verification code is itself inspectable) | `engine/`: the npm tarball, its `SHASUM`, the extracted package, and `policy-engine.browser.js`, the same package bundled for the browser |
 | 6 | The scripts to re-run verification and the tamper test end to end | `cli/verify.mjs`, `cli/tamper.mjs`, with `cli/README.md` |
 | 7 | The enforcement exhibits: six v7 determination records, one per Section 6 outcome scenario, and the five signed payment refusals issued when a payment cited a determination whose outcome the mandate did not treat as authorising, the out-of-scope claim among them | `data/enforcement-exhibits/` with `MANIFEST.json`; `cli/verify-enforcement.mjs` |
+| 8 | An in-browser case explorer performing the same verification and tamper demonstration locally in the reader's browser, no server involved | `index.html` at the repository root |
 
 ## Six steps a reader performs
 
