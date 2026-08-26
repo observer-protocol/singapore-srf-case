@@ -1,0 +1,83 @@
+{
+ "$note": "SYNTHETIC enforcement exhibits. Nothing here measures any bank, Telco, account holder, claimant or incident. Copied byte for byte; sha256 over the file bytes as committed.",
+ "labels": [
+  "SYNTHETIC",
+  "DEMONSTRATION-KEY"
+ ],
+ "source": {
+  "repo": "observer-protocol/op-policy-engine",
+  "branch": "session/srf-corpus",
+  "commit": "c65a3882b37b4a1f6643c3a1890041cf9bc3f721",
+  "paths": {
+   "determinations/": "policy-library/mas-srf-2024/out/determinations/",
+   "refusals.json": "policy-library/mas-srf-2024/out/console-path/refusals.json"
+  }
+ },
+ "register": {
+  "id": "urn:op:register:srf:0.1.0",
+  "sha256": "c27fccb68b7aaae2a13724ac9e0a873f87cc85565e77c19096339666f08bf033",
+  "accepted_tag": "srf-register-accepted-v1"
+ },
+ "determinations": {
+  "count": 6,
+  "recordVersion": 7,
+  "payloadType": "op.policy.determination.mas-srf-2024.v1",
+  "signed": false,
+  "why": "signature.state is \"unsigned\" on every record: the policy-library run path signs nothing. INDEX.json carries the sha256 of each artifact; the refusals cite these digests."
+ },
+ "refusals": {
+  "count": 5,
+  "code": [
+   "OUTCOME_NOT_AUTHORIZING"
+  ],
+  "payloadType": [
+   "op.enforcement.refusal.v3"
+  ],
+  "signedBy": [
+   "did:key:z6Mkv2ztCQN6zL52bCehZBKHx5BaNuHnfWAmMVVRUjdQWRSJ"
+  ],
+  "key": "scratch evaluator, Ed25519 did:key minted for the run on 2026-08-26 and never in any repository; DEMONSTRATION-KEY",
+  "cites": {
+   "refusal-1": {
+    "decisionId": "SRF-DET-2026-0002",
+    "outcome": "telco_bears",
+    "deciderArtifactDigest": "sha256:62c4f725d08f50dafaa1ef8b2e2e6d3ebbb8148ee7fee506d9ccc8c1a1bbe6ab"
+   },
+   "refusal-2": {
+    "decisionId": "SRF-DET-2026-0003",
+    "outcome": "account_holder_bears",
+    "deciderArtifactDigest": "sha256:10e33e70741b62590c13aee2a238651e42c13a18a656c30a26437941332e5bd8"
+   },
+   "refusal-3": {
+    "decisionId": "SRF-DET-2026-0004",
+    "outcome": "undetermined",
+    "deciderArtifactDigest": "sha256:beea061f207a2cd201bbc7a4b46a6db524dda0bbcd90d12f0888326035e18f4b"
+   },
+   "refusal-4": {
+    "decisionId": "SRF-DET-2026-0005",
+    "outcome": "undetermined",
+    "deciderArtifactDigest": "sha256:d34abf08ea8d7b7d69c6a6fd1422ccf8d619e16adf34bf6afde6f09794439e84"
+   },
+   "refusal-5": {
+    "decisionId": "SRF-DET-2026-0006",
+    "outcome": "out_of_scope",
+    "deciderArtifactDigest": "sha256:c4fba1ed4d05fff5b9a841f430ae352a8646a9dbacc878171b780c2ab6f7c539"
+   }
+  },
+  "verifier": {
+   "package": "@observer-protocol/policy-engine",
+   "version": "1.0.0-rc.22",
+   "script": "cli/verify-enforcement.mjs"
+  }
+ },
+ "files": {
+  "refusals.json": "ad50454fb6f3ec6cf1bea9c75e54f6424bbfc456c8fdb900439caab49b72def5",
+  "determinations/INDEX.json": "8796cc36865561d359a7d4f0416342a56c1d8b9120265780b240eef3cd7a2861",
+  "determinations/SRF-SYN-2026-0001.json": "41fb112d9003f770e477e356c880057041b81e649724daa6dfbc7e7e6f458bda",
+  "determinations/SRF-SYN-2026-0002.json": "62c4f725d08f50dafaa1ef8b2e2e6d3ebbb8148ee7fee506d9ccc8c1a1bbe6ab",
+  "determinations/SRF-SYN-2026-0003.json": "10e33e70741b62590c13aee2a238651e42c13a18a656c30a26437941332e5bd8",
+  "determinations/SRF-SYN-2026-0004.json": "beea061f207a2cd201bbc7a4b46a6db524dda0bbcd90d12f0888326035e18f4b",
+  "determinations/SRF-SYN-2026-0005.json": "d34abf08ea8d7b7d69c6a6fd1422ccf8d619e16adf34bf6afde6f09794439e84",
+  "determinations/SRF-SYN-2026-0006.json": "c4fba1ed4d05fff5b9a841f430ae352a8646a9dbacc878171b780c2ab6f7c539"
+ }
+}

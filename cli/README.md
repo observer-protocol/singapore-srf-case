@@ -43,3 +43,18 @@ A reader who completes these six steps has checked the signed records with the p
 the published key material alone. The full-corpus checks (42,188 records, the rebuild from corpus and
 engine, parity) are the annex's sections 4 and 5; they need the corpus scripts at the ref in step 2,
 which this repository does not carry.
+
+## The enforcement exhibits
+
+`data/enforcement-exhibits/` holds the six v7 determination records (one per Section 6 outcome
+scenario; unsigned, as their `signature.state` says) and `refusals.json`, the five signed payment
+refusals a scratch payment service issued when a payment cited each determination whose outcome was
+not `fi_bears`, among them the out-of-scope claim. `MANIFEST.json` carries the source ref and every
+digest.
+
+    node cli/verify-enforcement.mjs --engine node_modules/@observer-protocol/policy-engine
+
+Expected: every line `PASS` and exit 0. The refusal bytes are rebuilt by the package's own
+`signableFromRefusalRow`, `signableFromRefusal` and `refusalPayload`, the key is decoded from
+`signature.signedBy`, and each refusal's `deciderArtifactDigest` is compared with the sha256 of the
+committed determination record it cites. A changed `amountRaw` on each refusal must be rejected.
