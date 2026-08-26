@@ -1,10 +1,10 @@
 # Verification gate results
 
-Run: 2026-08-26T18:09:31.777Z; Chrome at `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`; page `index.html` (395349 bytes).
+Run: 2026-08-26T19:15:29.141Z; Chrome at `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`; page `index.html` (395349 bytes).
 
 | check | result | detail |
 |---|---|---|
-| file://: page loaded | PASS | file:///private/tmp/claude-501/-Users-agentic/d72f6ee3-c0b3-4be2-a60e-5e4bbc6c311b/scratchpad/singapore-srf-case/index.html |
+| file://: page loaded | PASS | file:///Users/agentic/Desktop/OP_AT/singapore-srf-case/index.html |
 | file://: engine present | PASS |  |
 | file://: register rows | PASS | 104 |
 | file://: tier filter narrows | PASS | 9 of 104 at tier=telco |
@@ -20,7 +20,7 @@ Run: 2026-08-26T18:09:31.777Z; Chrome at `/Applications/Google Chrome.app/Conten
 | file://: banner line | PASS |  |
 | file://: SYNTHETIC and DEMONSTRATION-KEY tags on every exhibit card | PASS | 24 tags on the page |
 | file://: footer carries engine version, shasum, tag, commit, manifest digest, CLI link | PASS |  |
-| file://: no request left the page after load | PASS | 1 requests total, 1 at load: file:///private/tmp/claude-501/-Users-agentic/d72f6ee3-c0b3-4be2-a60e-5e4bbc6c311b/scratchpad/singapore-srf-case/index.html |
+| file://: no request left the page after load | PASS | 1 requests total, 1 at load: file:///Users/agentic/Desktop/OP_AT/singapore-srf-case/index.html |
 | file://: no console errors | PASS |  |
 | http (offline after load): page loaded | PASS | http://127.0.0.1:8765/index.html |
 | http (offline after load): engine present | PASS |  |
